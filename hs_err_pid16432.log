@@ -1,0 +1,899 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffaaecfb47a, pid=16432, tid=11424
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_31-b13) (build 1.8.0_31-b13)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.31-b07 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# C  [ig75icd64.dll+0x57b47a]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001b037000):  JavaThread "main-SharedResourceRunner" daemon [_thread_in_native, id=11424, stack(0x00000000211b0000,0x00000000212b0000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x0000000000000010
+
+Registers:
+RAX=0x000000002019d360, RBX=0x0000000000000001, RCX=0x0000000000000001, RDX=0x0000000000000001
+RSP=0x00000000212af3b0, RBP=0x00000000201a8f00, RSI=0x0000000000000001, RDI=0x0000000000000000
+R8 =0x0000000000000000, R9 =0x00000000212af510, R10=0x0000000000000000, R11=0x0000000000000246
+R12=0x0000000000000000, R13=0x0000000020fba028, R14=0x00000000212af548, R15=0x000000001b037000
+RIP=0x00007ffaaecfb47a, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x00000000212af3b0)
+0x00000000212af3b0:   0000000000000000 000000001b037000
+0x00000000212af3c0:   0000000000000000 00007ffac8dd13b0
+0x00000000212af3d0:   0000000000000000 0000000000050001
+0x00000000212af3e0:   fffffffffffffffe 0000000000000000
+0x00000000212af3f0:   0000000000000000 00007ffac8dd4418
+0x00000000212af400:   00000000000000b6 0000000000000000
+0x00000000212af410:   00007ffac8e14000 0000000000050001
+0x00000000212af420:   00000000212af510 00007ffac8dd5a34
+0x00000000212af430:   0000000000000000 0000000002b5dfb0
+0x00000000212af440:   00000000212af510 00000000212af540
+0x00000000212af450:   0000000000000031 000000006455657a
+0x00000000212af460:   0000000002b67200 0000000020fba028
+0x00000000212af470:   0000000002b5de90 0000000002b81683
+0x00000000212af480:   00007ffad3814d00 0000000002b75b74
+0x00000000212af490:   0000000020f95e28 0000000002b5de90
+0x00000000212af4a0:   000000001afd6560 00000000776debdb 
+
+Instructions: (pc=0x00007ffaaecfb47a)
+0x00007ffaaecfb45a:   c2 52 00 65 48 8b 04 25 58 00 00 00 bd 18 00 00
+0x00007ffaaecfb46a:   00 4a 8b 04 c0 48 8b 2c 28 4c 8b 85 10 6a 02 00
+0x00007ffaaecfb47a:   41 8b 50 10 8b c1 48 23 d0 49 8b 40 28 48 8b 3c
+0x00007ffaaecfb48a:   d0 48 85 ff 74 1d 48 8b cf e8 b8 2b 07 00 39 58 
+
+
+Register to memory mapping:
+
+RAX=0x000000002019d360 is an unknown value
+RBX=0x0000000000000001 is an unknown value
+RCX=0x0000000000000001 is an unknown value
+RDX=0x0000000000000001 is an unknown value
+RSP=0x00000000212af3b0 is pointing into the stack for thread: 0x000000001b037000
+RBP=0x00000000201a8f00 is an unknown value
+RSI=0x0000000000000001 is an unknown value
+RDI=0x0000000000000000 is an unknown value
+R8 =0x0000000000000000 is an unknown value
+R9 =0x00000000212af510 is pointing into the stack for thread: 0x000000001b037000
+R10=0x0000000000000000 is an unknown value
+R11=0x0000000000000246 is an unknown value
+R12=0x0000000000000000 is an unknown value
+R13={method} {0x0000000020fba030} 'dispatch_wglDeleteContext0' '(JJ)Z' in 'jogamp/opengl/windows/wgl/WGL'
+R14=0x00000000212af548 is pointing into the stack for thread: 0x000000001b037000
+R15=0x000000001b037000 is a thread
+
+
+Stack: [0x00000000211b0000,0x00000000212b0000],  sp=0x00000000212af3b0,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [ig75icd64.dll+0x57b47a]
+C  [graphics-hook64.dll+0x4418]
+C  [graphics-hook64.dll+0x5a34]
+C  [jogl_desktop.dll+0x5657a]
+C  0x0000000002b75b74
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  jogamp.opengl.windows.wgl.WGL.dispatch_wglDeleteContext0(JJ)Z+0
+j  jogamp.opengl.windows.wgl.WGL.wglDeleteContext(J)Z+37
+j  jogamp.opengl.windows.wgl.WindowsWGLContext.destroyImpl()V+10
+j  jogamp.opengl.GLContextImpl.destroy()V+387
+j  jogamp.opengl.windows.wgl.WindowsWGLDrawableFactory$SharedResourceImplementation.releaseSharedResource(Ljogamp/opengl/SharedResourceRunner$Resource;)V+143
+j  jogamp.opengl.SharedResourceRunner.releaseSharedResources()V+46
+j  jogamp.opengl.SharedResourceRunner.run()V+495
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000001ad12000 JavaThread "AWT-Shutdown" [_thread_blocked, id=15380, stack(0x0000000052e00000,0x0000000052f00000)]
+  0x000000001ad15800 JavaThread "Thread-2" daemon [_thread_in_native, id=11984, stack(0x0000000052d00000,0x0000000052e00000)]
+  0x000000001ad0f000 JavaThread "NativeWindowFactory_ShutdownHook" [_thread_blocked, id=12944, stack(0x0000000052c00000,0x0000000052d00000)]
+  0x000000001ad15000 JavaThread "DestroyJavaVM" [_thread_blocked, id=12436, stack(0x0000000002960000,0x0000000002a60000)]
+  0x000000001ad0d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10748, stack(0x0000000052780000,0x0000000052880000)]
+  0x000000001ad14000 JavaThread "Direct Clip" daemon [_thread_blocked, id=6204, stack(0x00000000505f0000,0x00000000506f0000)]
+  0x000000001ad11000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26016, stack(0x00000000504f0000,0x00000000505f0000)]
+  0x000000001ad13800 JavaThread "Direct Clip" daemon [_thread_blocked, id=18740, stack(0x00000000503f0000,0x00000000504f0000)]
+  0x000000001ad12800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27052, stack(0x000000004fef0000,0x000000004fff0000)]
+  0x000000001ad06000 JavaThread "Direct Clip" daemon [_thread_blocked, id=21356, stack(0x000000004fdf0000,0x000000004fef0000)]
+  0x000000001ad0c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27204, stack(0x000000004fcf0000,0x000000004fdf0000)]
+  0x000000001ad0c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=7428, stack(0x000000004fbf0000,0x000000004fcf0000)]
+  0x000000001ad09800 JavaThread "Direct Clip" daemon [_thread_blocked, id=23756, stack(0x000000004faf0000,0x000000004fbf0000)]
+  0x000000001ad05000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22312, stack(0x000000004f9f0000,0x000000004faf0000)]
+  0x000000001ad04800 JavaThread "Direct Clip" daemon [_thread_blocked, id=29140, stack(0x000000004f8f0000,0x000000004f9f0000)]
+  0x000000001ad08000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22760, stack(0x000000004f7f0000,0x000000004f8f0000)]
+  0x000000001ad07800 JavaThread "Direct Clip" daemon [_thread_blocked, id=29364, stack(0x000000004f6f0000,0x000000004f7f0000)]
+  0x000000001ad0b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29304, stack(0x000000004f5f0000,0x000000004f6f0000)]
+  0x000000001ad0a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=6928, stack(0x000000004f4f0000,0x000000004f5f0000)]
+  0x000000001ad06800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10156, stack(0x000000004f3f0000,0x000000004f4f0000)]
+  0x000000001ad09000 JavaThread "Direct Clip" daemon [_thread_blocked, id=19404, stack(0x000000004f2f0000,0x000000004f3f0000)]
+  0x000000001acff000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17720, stack(0x000000004f1f0000,0x000000004f2f0000)]
+  0x000000001ad03800 JavaThread "Direct Clip" daemon [_thread_blocked, id=6656, stack(0x000000004f0f0000,0x000000004f1f0000)]
+  0x000000001ad03000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29516, stack(0x000000004eff0000,0x000000004f0f0000)]
+  0x000000001ad02000 JavaThread "Direct Clip" daemon [_thread_blocked, id=25496, stack(0x000000004eef0000,0x000000004eff0000)]
+  0x000000001acfa800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20456, stack(0x000000004edf0000,0x000000004eef0000)]
+  0x000000001acfc000 JavaThread "Direct Clip" daemon [_thread_blocked, id=31512, stack(0x000000004ecf0000,0x000000004edf0000)]
+  0x000000001acfe800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20120, stack(0x000000004ebf0000,0x000000004ecf0000)]
+  0x000000001acfd000 JavaThread "Direct Clip" daemon [_thread_blocked, id=12344, stack(0x000000004eaf0000,0x000000004ebf0000)]
+  0x000000001ad00800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27316, stack(0x000000004e9f0000,0x000000004eaf0000)]
+  0x000000001acfd800 JavaThread "Direct Clip" daemon [_thread_blocked, id=13200, stack(0x000000004e8f0000,0x000000004e9f0000)]
+  0x000000001ad01800 JavaThread "Direct Clip" daemon [_thread_blocked, id=28836, stack(0x000000004e7f0000,0x000000004e8f0000)]
+  0x000000001acfb000 JavaThread "Direct Clip" daemon [_thread_blocked, id=5856, stack(0x000000004e6f0000,0x000000004e7f0000)]
+  0x000000001acf9800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31200, stack(0x000000004e5f0000,0x000000004e6f0000)]
+  0x000000001acf9000 JavaThread "Direct Clip" daemon [_thread_blocked, id=19048, stack(0x000000004e4f0000,0x000000004e5f0000)]
+  0x000000001ad00000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23068, stack(0x000000004e3f0000,0x000000004e4f0000)]
+  0x0000000024611000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17812, stack(0x000000004e2f0000,0x000000004e3f0000)]
+  0x000000002460f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=7464, stack(0x000000004e1f0000,0x000000004e2f0000)]
+  0x000000002460e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28376, stack(0x000000004e0f0000,0x000000004e1f0000)]
+  0x0000000024615000 JavaThread "Direct Clip" daemon [_thread_blocked, id=14748, stack(0x000000004dff0000,0x000000004e0f0000)]
+  0x0000000024610000 JavaThread "Direct Clip" daemon [_thread_blocked, id=19148, stack(0x000000004def0000,0x000000004dff0000)]
+  0x0000000024611800 JavaThread "Direct Clip" daemon [_thread_blocked, id=17896, stack(0x000000004ddf0000,0x000000004def0000)]
+  0x0000000024614000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29800, stack(0x000000004dcf0000,0x000000004ddf0000)]
+  0x0000000024613000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26692, stack(0x000000004dbf0000,0x000000004dcf0000)]
+  0x0000000024612800 JavaThread "Direct Clip" daemon [_thread_blocked, id=8388, stack(0x000000004daf0000,0x000000004dbf0000)]
+  0x0000000024608000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22032, stack(0x000000004d9f0000,0x000000004daf0000)]
+  0x000000002460b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=3636, stack(0x000000004d8f0000,0x000000004d9f0000)]
+  0x000000002460a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=14524, stack(0x000000004d7f0000,0x000000004d8f0000)]
+  0x0000000024608800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22504, stack(0x000000004d6f0000,0x000000004d7f0000)]
+  0x0000000024609800 JavaThread "Direct Clip" daemon [_thread_blocked, id=28148, stack(0x000000004d5f0000,0x000000004d6f0000)]
+  0x000000002460c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=28508, stack(0x000000004d4f0000,0x000000004d5f0000)]
+  0x000000002460b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=25684, stack(0x000000004d3f0000,0x000000004d4f0000)]
+  0x000000002460e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15688, stack(0x000000004d2f0000,0x000000004d3f0000)]
+  0x0000000024606800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12156, stack(0x000000004d1f0000,0x000000004d2f0000)]
+  0x000000002460d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27384, stack(0x000000004d0f0000,0x000000004d1f0000)]
+  0x0000000024607000 JavaThread "Direct Clip" daemon [_thread_blocked, id=6700, stack(0x000000004cff0000,0x000000004d0f0000)]
+  0x0000000024603800 JavaThread "Direct Clip" daemon [_thread_blocked, id=5944, stack(0x000000004cef0000,0x000000004cff0000)]
+  0x00000000245ff800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10612, stack(0x000000004cdf0000,0x000000004cef0000)]
+  0x0000000024605000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28688, stack(0x000000004ccf0000,0x000000004cdf0000)]
+  0x0000000024602800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20252, stack(0x000000004cbf0000,0x000000004ccf0000)]
+  0x0000000024601000 JavaThread "Direct Clip" daemon [_thread_blocked, id=18296, stack(0x000000004caf0000,0x000000004cbf0000)]
+  0x0000000024600800 JavaThread "Direct Clip" daemon [_thread_blocked, id=2308, stack(0x000000004c9f0000,0x000000004caf0000)]
+  0x0000000024605800 JavaThread "Direct Clip" daemon [_thread_blocked, id=19820, stack(0x000000004c8f0000,0x000000004c9f0000)]
+  0x0000000024602000 JavaThread "Direct Clip" daemon [_thread_blocked, id=16276, stack(0x000000004c7f0000,0x000000004c8f0000)]
+  0x0000000024604000 JavaThread "Direct Clip" daemon [_thread_blocked, id=20164, stack(0x000000004c6f0000,0x000000004c7f0000)]
+  0x00000000245f8000 JavaThread "Direct Clip" daemon [_thread_blocked, id=20320, stack(0x000000004c5f0000,0x000000004c6f0000)]
+  0x00000000245ff000 JavaThread "Direct Clip" daemon [_thread_blocked, id=18752, stack(0x000000004c4f0000,0x000000004c5f0000)]
+  0x00000000245fe000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23748, stack(0x000000004c3f0000,0x000000004c4f0000)]
+  0x00000000245f6800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20404, stack(0x000000004c2f0000,0x000000004c3f0000)]
+  0x00000000245f7800 JavaThread "Direct Clip" daemon [_thread_blocked, id=3956, stack(0x000000004c1f0000,0x000000004c2f0000)]
+  0x00000000245fd800 JavaThread "Direct Clip" daemon [_thread_blocked, id=11272, stack(0x000000004c0f0000,0x000000004c1f0000)]
+  0x00000000245fc800 JavaThread "Direct Clip" daemon [_thread_blocked, id=6516, stack(0x000000004bff0000,0x000000004c0f0000)]
+  0x00000000245fc000 JavaThread "Direct Clip" daemon [_thread_blocked, id=7236, stack(0x000000004bef0000,0x000000004bff0000)]
+  0x00000000245fa800 JavaThread "Direct Clip" daemon [_thread_blocked, id=24988, stack(0x000000004bdf0000,0x000000004bef0000)]
+  0x00000000245f9000 JavaThread "Direct Clip" daemon [_thread_blocked, id=14784, stack(0x000000004bcf0000,0x000000004bdf0000)]
+  0x00000000245fb000 JavaThread "Direct Clip" daemon [_thread_blocked, id=21976, stack(0x000000004bbf0000,0x000000004bcf0000)]
+  0x00000000245f9800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27196, stack(0x000000004baf0000,0x000000004bbf0000)]
+  0x00000000245ef000 JavaThread "Direct Clip" daemon [_thread_blocked, id=25860, stack(0x000000004b9f0000,0x000000004baf0000)]
+  0x00000000245f6000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27232, stack(0x000000004b8f0000,0x000000004b9f0000)]
+  0x00000000245f3000 JavaThread "Direct Clip" daemon [_thread_blocked, id=21552, stack(0x000000004b7f0000,0x000000004b8f0000)]
+  0x00000000245f5000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10768, stack(0x000000004b6f0000,0x000000004b7f0000)]
+  0x00000000245f2000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24772, stack(0x000000004b5f0000,0x000000004b6f0000)]
+  0x00000000245f1800 JavaThread "Direct Clip" daemon [_thread_blocked, id=26832, stack(0x000000004b4f0000,0x000000004b5f0000)]
+  0x00000000245f0800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30020, stack(0x000000004b3f0000,0x000000004b4f0000)]
+  0x00000000245f4800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20436, stack(0x000000004b2f0000,0x000000004b3f0000)]
+  0x00000000245f0000 JavaThread "Direct Clip" daemon [_thread_blocked, id=31516, stack(0x000000004b1f0000,0x000000004b2f0000)]
+  0x00000000245f3800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12792, stack(0x000000004b0f0000,0x000000004b1f0000)]
+  0x00000000245e7800 JavaThread "Direct Clip" daemon [_thread_blocked, id=14640, stack(0x000000004aff0000,0x000000004b0f0000)]
+  0x00000000245ec000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29056, stack(0x000000004aef0000,0x000000004aff0000)]
+  0x00000000245eb800 JavaThread "Direct Clip" daemon [_thread_blocked, id=18032, stack(0x000000004adf0000,0x000000004aef0000)]
+  0x00000000245e9000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28280, stack(0x000000004acf0000,0x000000004adf0000)]
+  0x00000000245ea000 JavaThread "Direct Clip" daemon [_thread_blocked, id=15804, stack(0x000000004abf0000,0x000000004acf0000)]
+  0x00000000245e8800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31480, stack(0x000000004aaf0000,0x000000004abf0000)]
+  0x00000000245ee800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12140, stack(0x000000004a9f0000,0x000000004aaf0000)]
+  0x00000000245e7000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13512, stack(0x000000004a8f0000,0x000000004a9f0000)]
+  0x00000000245ed800 JavaThread "Direct Clip" daemon [_thread_blocked, id=9864, stack(0x000000004a7f0000,0x000000004a8f0000)]
+  0x00000000245ed000 JavaThread "Direct Clip" daemon [_thread_blocked, id=21780, stack(0x000000004a6f0000,0x000000004a7f0000)]
+  0x00000000245ea800 JavaThread "Direct Clip" daemon [_thread_blocked, id=13300, stack(0x000000004a5f0000,0x000000004a6f0000)]
+  0x00000000245df000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17388, stack(0x000000004a4f0000,0x000000004a5f0000)]
+  0x00000000245e6000 JavaThread "Direct Clip" daemon [_thread_blocked, id=31308, stack(0x000000004a3f0000,0x000000004a4f0000)]
+  0x00000000245e5800 JavaThread "Direct Clip" daemon [_thread_blocked, id=28880, stack(0x000000004a2f0000,0x000000004a3f0000)]
+  0x00000000245e4800 JavaThread "Direct Clip" daemon [_thread_blocked, id=21560, stack(0x000000004a1f0000,0x000000004a2f0000)]
+  0x00000000245e4000 JavaThread "Direct Clip" daemon [_thread_blocked, id=11584, stack(0x000000004a0f0000,0x000000004a1f0000)]
+  0x00000000245e1800 JavaThread "Direct Clip" daemon [_thread_blocked, id=25460, stack(0x0000000049ff0000,0x000000004a0f0000)]
+  0x00000000245e0000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24444, stack(0x0000000049ef0000,0x0000000049ff0000)]
+  0x00000000245dd000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13764, stack(0x0000000049df0000,0x0000000049ef0000)]
+  0x00000000245e3000 JavaThread "Direct Clip" daemon [_thread_blocked, id=11296, stack(0x0000000049cf0000,0x0000000049df0000)]
+  0x00000000245e0800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30332, stack(0x0000000049bf0000,0x0000000049cf0000)]
+  0x00000000245dc000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22748, stack(0x0000000049af0000,0x0000000049bf0000)]
+  0x00000000245db800 JavaThread "Direct Clip" daemon [_thread_blocked, id=2212, stack(0x00000000499f0000,0x0000000049af0000)]
+  0x00000000245de800 JavaThread "Direct Clip" daemon [_thread_blocked, id=17792, stack(0x00000000498f0000,0x00000000499f0000)]
+  0x00000000245e2000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29964, stack(0x00000000497f0000,0x00000000498f0000)]
+  0x00000000245da800 JavaThread "Direct Clip" daemon [_thread_blocked, id=1204, stack(0x00000000496f0000,0x00000000497f0000)]
+  0x00000000245d9000 JavaThread "Direct Clip" daemon [_thread_blocked, id=15188, stack(0x00000000495f0000,0x00000000496f0000)]
+  0x00000000245d7000 JavaThread "Direct Clip" daemon [_thread_blocked, id=12488, stack(0x00000000494f0000,0x00000000495f0000)]
+  0x00000000245d7800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20848, stack(0x0000000047360000,0x0000000047460000)]
+  0x00000000245da000 JavaThread "Direct Clip" daemon [_thread_blocked, id=5780, stack(0x0000000047260000,0x0000000047360000)]
+  0x00000000245dd800 JavaThread "Direct Clip" daemon [_thread_blocked, id=9308, stack(0x0000000047160000,0x0000000047260000)]
+  0x00000000245d8800 JavaThread "Direct Clip" daemon [_thread_blocked, id=21260, stack(0x0000000047060000,0x0000000047160000)]
+  0x00000000245d6000 JavaThread "Direct Clip" daemon [_thread_blocked, id=18784, stack(0x0000000046f60000,0x0000000047060000)]
+  0x0000000023486800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27376, stack(0x0000000046e60000,0x0000000046f60000)]
+  0x0000000023486000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23424, stack(0x0000000046d60000,0x0000000046e60000)]
+  0x0000000023485000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24416, stack(0x0000000046c60000,0x0000000046d60000)]
+  0x0000000023487800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31584, stack(0x0000000046b60000,0x0000000046c60000)]
+  0x000000002347d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=18928, stack(0x0000000046a60000,0x0000000046b60000)]
+  0x000000002347e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=13072, stack(0x0000000046960000,0x0000000046a60000)]
+  0x0000000023484800 JavaThread "Direct Clip" daemon [_thread_blocked, id=17212, stack(0x0000000046860000,0x0000000046960000)]
+  0x0000000023481800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16848, stack(0x0000000046760000,0x0000000046860000)]
+  0x0000000023483800 JavaThread "Direct Clip" daemon [_thread_blocked, id=29532, stack(0x0000000046660000,0x0000000046760000)]
+  0x000000002347d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=20172, stack(0x0000000046560000,0x0000000046660000)]
+  0x000000002347c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27780, stack(0x0000000046460000,0x0000000046560000)]
+  0x0000000023480000 JavaThread "Direct Clip" daemon [_thread_blocked, id=30968, stack(0x0000000046360000,0x0000000046460000)]
+  0x0000000023483000 JavaThread "Direct Clip" daemon [_thread_blocked, id=30452, stack(0x0000000046260000,0x0000000046360000)]
+  0x0000000023480800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15940, stack(0x0000000046160000,0x0000000046260000)]
+  0x0000000023482000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10384, stack(0x0000000046060000,0x0000000046160000)]
+  0x000000002347f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=8496, stack(0x0000000045f60000,0x0000000046060000)]
+  0x0000000023475800 JavaThread "Direct Clip" daemon [_thread_blocked, id=29000, stack(0x0000000045e60000,0x0000000045f60000)]
+  0x000000002347b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=6512, stack(0x0000000045d60000,0x0000000045e60000)]
+  0x000000002347a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=21028, stack(0x0000000045c60000,0x0000000045d60000)]
+  0x0000000023474000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17556, stack(0x0000000045b60000,0x0000000045c60000)]
+  0x0000000023474800 JavaThread "Direct Clip" daemon [_thread_blocked, id=11780, stack(0x0000000045a60000,0x0000000045b60000)]
+  0x0000000023476000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22432, stack(0x0000000045960000,0x0000000045a60000)]
+  0x000000002347a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24628, stack(0x0000000045860000,0x0000000045960000)]
+  0x0000000023472800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31504, stack(0x0000000045760000,0x0000000045860000)]
+  0x0000000023479000 JavaThread "Direct Clip" daemon [_thread_blocked, id=31152, stack(0x0000000045660000,0x0000000045760000)]
+  0x0000000023478800 JavaThread "Direct Clip" daemon [_thread_blocked, id=18256, stack(0x0000000045560000,0x0000000045660000)]
+  0x0000000023477000 JavaThread "Direct Clip" daemon [_thread_blocked, id=2524, stack(0x0000000045460000,0x0000000045560000)]
+  0x0000000023477800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31676, stack(0x0000000045360000,0x0000000045460000)]
+  0x0000000023473000 JavaThread "Direct Clip" daemon [_thread_blocked, id=21012, stack(0x0000000045260000,0x0000000045360000)]
+  0x000000002346b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=15876, stack(0x0000000045160000,0x0000000045260000)]
+  0x0000000023471800 JavaThread "Direct Clip" daemon [_thread_blocked, id=8936, stack(0x0000000044090000,0x0000000044190000)]
+  0x0000000023471000 JavaThread "Direct Clip" daemon [_thread_blocked, id=8200, stack(0x0000000043f90000,0x0000000044090000)]
+  0x0000000023470000 JavaThread "Direct Clip" daemon [_thread_blocked, id=12060, stack(0x0000000043e90000,0x0000000043f90000)]
+  0x0000000023468800 JavaThread "Direct Clip" daemon [_thread_blocked, id=19120, stack(0x0000000043d90000,0x0000000043e90000)]
+  0x000000002346f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31036, stack(0x0000000043c90000,0x0000000043d90000)]
+  0x000000002346b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20000, stack(0x0000000043b90000,0x0000000043c90000)]
+  0x000000002346e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16100, stack(0x0000000043a90000,0x0000000043b90000)]
+  0x000000002346d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=25096, stack(0x0000000043990000,0x0000000043a90000)]
+  0x000000002346e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29068, stack(0x0000000043890000,0x0000000043990000)]
+  0x000000002346c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=17196, stack(0x0000000043790000,0x0000000043890000)]
+  0x000000002346a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=18680, stack(0x0000000043690000,0x0000000043790000)]
+  0x0000000023469800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16420, stack(0x0000000043590000,0x0000000043690000)]
+  0x000000001ac77800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10164, stack(0x0000000043490000,0x0000000043590000)]
+  0x000000001ac78000 JavaThread "Direct Clip" daemon [_thread_blocked, id=25548, stack(0x0000000043390000,0x0000000043490000)]
+  0x000000001ac7a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30724, stack(0x0000000043290000,0x0000000043390000)]
+  0x000000001ac79800 JavaThread "Direct Clip" daemon [_thread_blocked, id=21872, stack(0x0000000043190000,0x0000000043290000)]
+  0x000000001ac79000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27856, stack(0x0000000043090000,0x0000000043190000)]
+  0x000000001ac76800 JavaThread "Direct Clip" daemon [_thread_blocked, id=24084, stack(0x0000000042f90000,0x0000000043090000)]
+  0x000000001ac76000 JavaThread "Direct Clip" daemon [_thread_blocked, id=19376, stack(0x0000000042e90000,0x0000000042f90000)]
+  0x000000001ac6e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=5524, stack(0x0000000042d90000,0x0000000042e90000)]
+  0x000000001ac75000 JavaThread "Direct Clip" daemon [_thread_blocked, id=7076, stack(0x0000000042c90000,0x0000000042d90000)]
+  0x000000001ac74000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10312, stack(0x0000000042b90000,0x0000000042c90000)]
+  0x000000001ac73800 JavaThread "Direct Clip" daemon [_thread_blocked, id=25764, stack(0x0000000042a90000,0x0000000042b90000)]
+  0x000000001ac70800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22124, stack(0x0000000042990000,0x0000000042a90000)]
+  0x000000001ac72000 JavaThread "Direct Clip" daemon [_thread_blocked, id=9480, stack(0x0000000042890000,0x0000000042990000)]
+  0x000000001ac6f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=12252, stack(0x0000000042790000,0x0000000042890000)]
+  0x000000001ac71000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24712, stack(0x0000000042690000,0x0000000042790000)]
+  0x000000001ac72800 JavaThread "Direct Clip" daemon [_thread_blocked, id=23292, stack(0x0000000042590000,0x0000000042690000)]
+  0x000000001ac69000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10448, stack(0x0000000042490000,0x0000000042590000)]
+  0x000000001ac6f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=25288, stack(0x0000000042390000,0x0000000042490000)]
+  0x000000001ac66800 JavaThread "Direct Clip" daemon [_thread_blocked, id=25640, stack(0x0000000042290000,0x0000000042390000)]
+  0x000000001ac6d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=2764, stack(0x0000000042190000,0x0000000042290000)]
+  0x000000001ac6c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=23788, stack(0x0000000042090000,0x0000000042190000)]
+  0x000000001ac65000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27732, stack(0x0000000041f90000,0x0000000042090000)]
+  0x000000001ac6c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=19516, stack(0x0000000041e90000,0x0000000041f90000)]
+  0x000000001ac68000 JavaThread "Direct Clip" daemon [_thread_blocked, id=16088, stack(0x0000000041d90000,0x0000000041e90000)]
+  0x000000001ac6b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=9036, stack(0x0000000041c90000,0x0000000041d90000)]
+  0x000000001ac69800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20932, stack(0x0000000041b90000,0x0000000041c90000)]
+  0x000000001ac6a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=19952, stack(0x0000000041a90000,0x0000000041b90000)]
+  0x000000001ac66000 JavaThread "Direct Clip" daemon [_thread_blocked, id=9348, stack(0x0000000041990000,0x0000000041a90000)]
+  0x000000001ac63800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22652, stack(0x0000000041890000,0x0000000041990000)]
+  0x000000001ac67800 JavaThread "Direct Clip" daemon [_thread_blocked, id=5640, stack(0x0000000041790000,0x0000000041890000)]
+  0x000000001ac60000 JavaThread "Direct Clip" daemon [_thread_blocked, id=30516, stack(0x0000000041690000,0x0000000041790000)]
+  0x000000001ac64800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16192, stack(0x0000000041590000,0x0000000041690000)]
+  0x000000001ac5c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=7064, stack(0x0000000041490000,0x0000000041590000)]
+  0x000000001ac63000 JavaThread "Direct Clip" daemon [_thread_blocked, id=16696, stack(0x0000000041390000,0x0000000041490000)]
+  0x000000001ac5b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16072, stack(0x0000000041290000,0x0000000041390000)]
+  0x000000001ac61800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16228, stack(0x0000000041190000,0x0000000041290000)]
+  0x000000001ac5f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=25964, stack(0x0000000041090000,0x0000000041190000)]
+  0x000000001ac62000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13532, stack(0x0000000040f90000,0x0000000041090000)]
+  0x000000001ac5e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16348, stack(0x0000000040e90000,0x0000000040f90000)]
+  0x000000001ac60800 JavaThread "Direct Clip" daemon [_thread_blocked, id=23128, stack(0x0000000040d90000,0x0000000040e90000)]
+  0x000000001ac5d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=18528, stack(0x0000000040c90000,0x0000000040d90000)]
+  0x000000001ac5d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=16676, stack(0x0000000040b90000,0x0000000040c90000)]
+  0x000000001b19b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=28576, stack(0x0000000040a90000,0x0000000040b90000)]
+  0x000000001b19a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=14408, stack(0x0000000040990000,0x0000000040a90000)]
+  0x000000001b19a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=14300, stack(0x0000000040890000,0x0000000040990000)]
+  0x000000001b199000 JavaThread "Direct Clip" daemon [_thread_blocked, id=8556, stack(0x0000000040790000,0x0000000040890000)]
+  0x000000001b19c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23548, stack(0x0000000040690000,0x0000000040790000)]
+  0x000000001b198800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31680, stack(0x0000000040590000,0x0000000040690000)]
+  0x000000001b191000 JavaThread "Direct Clip" daemon [_thread_blocked, id=15684, stack(0x0000000040490000,0x0000000040590000)]
+  0x000000001b197800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10724, stack(0x0000000040390000,0x0000000040490000)]
+  0x000000001b197000 JavaThread "Direct Clip" daemon [_thread_blocked, id=31428, stack(0x0000000040290000,0x0000000040390000)]
+  0x000000001b190000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26804, stack(0x0000000040190000,0x0000000040290000)]
+  0x000000001b195800 JavaThread "Direct Clip" daemon [_thread_blocked, id=18192, stack(0x0000000040090000,0x0000000040190000)]
+  0x000000001b196000 JavaThread "Direct Clip" daemon [_thread_blocked, id=25840, stack(0x000000003ff90000,0x0000000040090000)]
+  0x000000001b192800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22180, stack(0x000000003fe90000,0x000000003ff90000)]
+  0x000000001b18f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=29888, stack(0x000000003fd90000,0x000000003fe90000)]
+  0x000000001b191800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16312, stack(0x000000003fc90000,0x000000003fd90000)]
+  0x000000001b193000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22236, stack(0x000000003fb90000,0x000000003fc90000)]
+  0x000000001b194000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13388, stack(0x000000003fa90000,0x000000003fb90000)]
+  0x000000001b194800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30588, stack(0x000000003f990000,0x000000003fa90000)]
+  0x000000001b188000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13828, stack(0x000000003f890000,0x000000003f990000)]
+  0x000000001b18e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22592, stack(0x000000003f790000,0x000000003f890000)]
+  0x000000001b18c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30616, stack(0x000000003f690000,0x000000003f790000)]
+  0x000000001b18b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23076, stack(0x000000003f590000,0x000000003f690000)]
+  0x000000001b18d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=14580, stack(0x000000003f490000,0x000000003f590000)]
+  0x000000001b18e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31196, stack(0x000000003d300000,0x000000003d400000)]
+  0x000000001b185000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22072, stack(0x000000003d200000,0x000000003d300000)]
+  0x000000001b188800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27268, stack(0x000000003d100000,0x000000003d200000)]
+  0x000000001b186800 JavaThread "Direct Clip" daemon [_thread_blocked, id=25404, stack(0x000000003d000000,0x000000003d100000)]
+  0x000000001b18a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13968, stack(0x000000003cf00000,0x000000003d000000)]
+  0x000000001b18b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=29220, stack(0x000000003ce00000,0x000000003cf00000)]
+  0x000000001b185800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16104, stack(0x000000003cd00000,0x000000003ce00000)]
+  0x000000001b189800 JavaThread "Direct Clip" daemon [_thread_blocked, id=23952, stack(0x000000003cc00000,0x000000003cd00000)]
+  0x000000001b187000 JavaThread "Direct Clip" daemon [_thread_blocked, id=19012, stack(0x000000003cb00000,0x000000003cc00000)]
+  0x000000001b17d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15376, stack(0x000000003ca00000,0x000000003cb00000)]
+  0x000000001b17f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=4492, stack(0x000000003c900000,0x000000003ca00000)]
+  0x000000001b182800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12788, stack(0x000000003c800000,0x000000003c900000)]
+  0x000000001b184000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28864, stack(0x000000003c700000,0x000000003c800000)]
+  0x000000001b182000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27072, stack(0x000000003c600000,0x000000003c700000)]
+  0x000000001b17f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22960, stack(0x000000003c500000,0x000000003c600000)]
+  0x000000001b181000 JavaThread "Direct Clip" daemon [_thread_blocked, id=31640, stack(0x000000003c400000,0x000000003c500000)]
+  0x000000001b183800 JavaThread "Direct Clip" daemon [_thread_blocked, id=5084, stack(0x000000003c300000,0x000000003c400000)]
+  0x000000001b180800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12724, stack(0x000000003c200000,0x000000003c300000)]
+  0x000000001b17e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=11916, stack(0x000000003c100000,0x000000003c200000)]
+  0x0000000022f31000 JavaThread "Direct Clip" daemon [_thread_blocked, id=16216, stack(0x000000003c000000,0x000000003c100000)]
+  0x0000000022f30800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27872, stack(0x000000003bf00000,0x000000003c000000)]
+  0x0000000022f2f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=17164, stack(0x000000003be00000,0x000000003bf00000)]
+  0x0000000022f2e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=26396, stack(0x000000003bd00000,0x000000003be00000)]
+  0x0000000022f2e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=9892, stack(0x000000003bc00000,0x000000003bd00000)]
+  0x0000000022f2d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=9492, stack(0x000000003bb00000,0x000000003bc00000)]
+  0x0000000022f25800 JavaThread "Direct Clip" daemon [_thread_blocked, id=4272, stack(0x000000003ba00000,0x000000003bb00000)]
+  0x0000000022f2b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30336, stack(0x000000003b900000,0x000000003ba00000)]
+  0x0000000022f27000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17888, stack(0x000000003b800000,0x000000003b900000)]
+  0x0000000022f2c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=28456, stack(0x000000003b700000,0x000000003b800000)]
+  0x0000000022f28000 JavaThread "Direct Clip" daemon [_thread_blocked, id=21540, stack(0x000000003b600000,0x000000003b700000)]
+  0x0000000022f24000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23684, stack(0x000000003b500000,0x000000003b600000)]
+  0x0000000022f2b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22284, stack(0x000000003b400000,0x000000003b500000)]
+  0x0000000022f23800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27592, stack(0x000000003b300000,0x000000003b400000)]
+  0x0000000022f25000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28204, stack(0x000000003b200000,0x000000003b300000)]
+  0x0000000022f26800 JavaThread "Direct Clip" daemon [_thread_blocked, id=3528, stack(0x000000003b100000,0x000000003b200000)]
+  0x0000000022f2a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24472, stack(0x000000003b000000,0x000000003b100000)]
+  0x0000000022f28800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22912, stack(0x000000003ac80000,0x000000003ad80000)]
+  0x0000000022f29800 JavaThread "Direct Clip" daemon [_thread_blocked, id=19328, stack(0x000000003ab80000,0x000000003ac80000)]
+  0x0000000022f1c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23180, stack(0x000000003aa80000,0x000000003ab80000)]
+  0x0000000022f22800 JavaThread "Direct Clip" daemon [_thread_blocked, id=7476, stack(0x000000003a980000,0x000000003aa80000)]
+  0x0000000022f22000 JavaThread "Direct Clip" daemon [_thread_blocked, id=16108, stack(0x000000003a880000,0x000000003a980000)]
+  0x0000000022f1d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=23148, stack(0x000000003a780000,0x000000003a880000)]
+  0x0000000022f1f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10744, stack(0x000000003a680000,0x000000003a780000)]
+  0x0000000022f1e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26856, stack(0x000000003a580000,0x000000003a680000)]
+  0x0000000022f21000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10700, stack(0x000000003a480000,0x000000003a580000)]
+  0x0000000022f20800 JavaThread "Direct Clip" daemon [_thread_blocked, id=13396, stack(0x000000003a380000,0x000000003a480000)]
+  0x0000000022f1c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16152, stack(0x000000003a280000,0x000000003a380000)]
+  0x0000000022f1f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=16144, stack(0x000000003a180000,0x000000003a280000)]
+  0x0000000022f14800 JavaThread "Direct Clip" daemon [_thread_blocked, id=5652, stack(0x000000003a080000,0x000000003a180000)]
+  0x0000000022f1b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=14356, stack(0x0000000039f80000,0x000000003a080000)]
+  0x0000000022f1a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=23380, stack(0x0000000039e80000,0x0000000039f80000)]
+  0x0000000022f19800 JavaThread "Direct Clip" daemon [_thread_blocked, id=13568, stack(0x0000000039d80000,0x0000000039e80000)]
+  0x0000000022f12000 JavaThread "Direct Clip" daemon [_thread_blocked, id=12452, stack(0x0000000039c80000,0x0000000039d80000)]
+  0x0000000022f19000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27172, stack(0x0000000039b80000,0x0000000039c80000)]
+  0x0000000022f15000 JavaThread "Direct Clip" daemon [_thread_blocked, id=5436, stack(0x0000000039a80000,0x0000000039b80000)]
+  0x0000000022f17800 JavaThread "Direct Clip" daemon [_thread_blocked, id=2376, stack(0x0000000039980000,0x0000000039a80000)]
+  0x0000000022f16800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22672, stack(0x0000000039880000,0x0000000039980000)]
+  0x0000000022f13800 JavaThread "Direct Clip" daemon [_thread_blocked, id=24008, stack(0x0000000039780000,0x0000000039880000)]
+  0x0000000022f16000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26964, stack(0x0000000039680000,0x0000000039780000)]
+  0x0000000022f18000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26232, stack(0x00000000374f0000,0x00000000375f0000)]
+  0x0000000022f13000 JavaThread "Direct Clip" daemon [_thread_blocked, id=244, stack(0x00000000373f0000,0x00000000374f0000)]
+  0x0000000019c6e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=7052, stack(0x00000000372f0000,0x00000000373f0000)]
+  0x0000000019c6d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=15440, stack(0x00000000371f0000,0x00000000372f0000)]
+  0x0000000019c6c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12212, stack(0x00000000370f0000,0x00000000371f0000)]
+  0x0000000019c6b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15568, stack(0x0000000036ff0000,0x00000000370f0000)]
+  0x0000000019c70000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23736, stack(0x0000000036ef0000,0x0000000036ff0000)]
+  0x0000000019c6e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24660, stack(0x0000000036df0000,0x0000000036ef0000)]
+  0x0000000019c6b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=1032, stack(0x0000000036cf0000,0x0000000036df0000)]
+  0x0000000019c6f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=13944, stack(0x0000000036bf0000,0x0000000036cf0000)]
+  0x0000000019c63000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29124, stack(0x0000000036af0000,0x0000000036bf0000)]
+  0x0000000019c6a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=7116, stack(0x00000000369f0000,0x0000000036af0000)]
+  0x0000000019c62800 JavaThread "Direct Clip" daemon [_thread_blocked, id=29572, stack(0x00000000368f0000,0x00000000369f0000)]
+  0x0000000019c69800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20600, stack(0x00000000367f0000,0x00000000368f0000)]
+  0x0000000019c68800 JavaThread "Direct Clip" daemon [_thread_blocked, id=8892, stack(0x00000000366f0000,0x00000000367f0000)]
+  0x0000000019c61800 JavaThread "Direct Clip" daemon [_thread_blocked, id=21436, stack(0x00000000365f0000,0x00000000366f0000)]
+  0x0000000019c65800 JavaThread "Direct Clip" daemon [_thread_blocked, id=28072, stack(0x00000000364f0000,0x00000000365f0000)]
+  0x0000000019c64000 JavaThread "Direct Clip" daemon [_thread_blocked, id=9964, stack(0x00000000363f0000,0x00000000364f0000)]
+  0x0000000019c61000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23124, stack(0x00000000362f0000,0x00000000363f0000)]
+  0x0000000019c68000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13524, stack(0x00000000361f0000,0x00000000362f0000)]
+  0x0000000019c65000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10092, stack(0x00000000360f0000,0x00000000361f0000)]
+  0x0000000019c67000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24040, stack(0x0000000035ff0000,0x00000000360f0000)]
+  0x0000000019c66800 JavaThread "Direct Clip" daemon [_thread_blocked, id=14548, stack(0x0000000035ef0000,0x0000000035ff0000)]
+  0x000000001acde800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22288, stack(0x0000000035df0000,0x0000000035ef0000)]
+  0x000000001ace3000 JavaThread "Direct Clip" daemon [_thread_blocked, id=12624, stack(0x0000000035cf0000,0x0000000035df0000)]
+  0x000000001ace2000 JavaThread "Direct Clip" daemon [_thread_blocked, id=31440, stack(0x0000000035bf0000,0x0000000035cf0000)]
+  0x000000001ace1800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30696, stack(0x0000000035af0000,0x0000000035bf0000)]
+  0x000000001ace0800 JavaThread "Direct Clip" daemon [_thread_blocked, id=19824, stack(0x00000000359f0000,0x0000000035af0000)]
+  0x000000001acdd800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20028, stack(0x00000000358f0000,0x00000000359f0000)]
+  0x000000001ace4800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10512, stack(0x00000000357f0000,0x00000000358f0000)]
+  0x000000001acdf000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17824, stack(0x00000000356f0000,0x00000000357f0000)]
+  0x000000001ace0000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17736, stack(0x00000000355f0000,0x00000000356f0000)]
+  0x000000001ace3800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20680, stack(0x00000000354f0000,0x00000000355f0000)]
+  0x000000002307f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=17992, stack(0x00000000353f0000,0x00000000354f0000)]
+  0x000000002307e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=25056, stack(0x00000000352f0000,0x00000000353f0000)]
+  0x000000002307d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=7508, stack(0x00000000351f0000,0x00000000352f0000)]
+  0x0000000023084000 JavaThread "Direct Clip" daemon [_thread_blocked, id=3988, stack(0x00000000350f0000,0x00000000351f0000)]
+  0x0000000023080800 JavaThread "Direct Clip" daemon [_thread_blocked, id=25180, stack(0x0000000034ff0000,0x00000000350f0000)]
+  0x000000002307f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17532, stack(0x0000000034ef0000,0x0000000034ff0000)]
+  0x0000000023082000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22212, stack(0x0000000034df0000,0x0000000034ef0000)]
+  0x0000000023083800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15036, stack(0x0000000034cf0000,0x0000000034df0000)]
+  0x0000000023082800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12508, stack(0x0000000034bf0000,0x0000000034cf0000)]
+  0x0000000023081000 JavaThread "Direct Clip" daemon [_thread_blocked, id=30624, stack(0x0000000034af0000,0x0000000034bf0000)]
+  0x0000000023076000 JavaThread "Direct Clip" daemon [_thread_blocked, id=18856, stack(0x00000000349f0000,0x0000000034af0000)]
+  0x000000002307c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20780, stack(0x00000000348f0000,0x00000000349f0000)]
+  0x0000000023075000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13800, stack(0x00000000347f0000,0x00000000348f0000)]
+  0x000000002307c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=18472, stack(0x00000000346f0000,0x00000000347f0000)]
+  0x000000002307a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=21636, stack(0x00000000345f0000,0x00000000346f0000)]
+  0x0000000023079800 JavaThread "Direct Clip" daemon [_thread_blocked, id=18316, stack(0x00000000344f0000,0x00000000345f0000)]
+  0x0000000023079000 JavaThread "Direct Clip" daemon [_thread_blocked, id=30104, stack(0x00000000343f0000,0x00000000344f0000)]
+  0x0000000023077800 JavaThread "Direct Clip" daemon [_thread_blocked, id=2404, stack(0x00000000342f0000,0x00000000343f0000)]
+  0x0000000023076800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15416, stack(0x00000000341f0000,0x00000000342f0000)]
+  0x000000002307b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=20756, stack(0x00000000340f0000,0x00000000341f0000)]
+  0x0000000023078000 JavaThread "Direct Clip" daemon [_thread_blocked, id=20924, stack(0x0000000033ff0000,0x00000000340f0000)]
+  0x00000000230a2800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15800, stack(0x0000000033ef0000,0x0000000033ff0000)]
+  0x00000000230a2000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24496, stack(0x0000000033df0000,0x0000000033ef0000)]
+  0x00000000230a1000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27992, stack(0x0000000033cf0000,0x0000000033df0000)]
+  0x00000000230a0800 JavaThread "Direct Clip" daemon [_thread_blocked, id=18984, stack(0x0000000033bf0000,0x0000000033cf0000)]
+  0x000000002309f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30080, stack(0x0000000033af0000,0x0000000033bf0000)]
+  0x00000000230a3800 JavaThread "Direct Clip" daemon [_thread_blocked, id=9048, stack(0x0000000031960000,0x0000000031a60000)]
+  0x000000002309f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=3068, stack(0x0000000031860000,0x0000000031960000)]
+  0x0000000023097800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10360, stack(0x0000000031760000,0x0000000031860000)]
+  0x000000002309e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28812, stack(0x0000000031660000,0x0000000031760000)]
+  0x000000002309d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=21564, stack(0x0000000031560000,0x0000000031660000)]
+  0x0000000023096000 JavaThread "Direct Clip" daemon [_thread_blocked, id=20824, stack(0x0000000031460000,0x0000000031560000)]
+  0x000000002309c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=8096, stack(0x0000000031360000,0x0000000031460000)]
+  0x000000002309c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27180, stack(0x0000000031260000,0x0000000031360000)]
+  0x000000002309b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26412, stack(0x0000000031160000,0x0000000031260000)]
+  0x0000000023095000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28780, stack(0x0000000031060000,0x0000000031160000)]
+  0x0000000023094800 JavaThread "Direct Clip" daemon [_thread_blocked, id=29476, stack(0x0000000030f60000,0x0000000031060000)]
+  0x000000002309a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=25204, stack(0x0000000030e60000,0x0000000030f60000)]
+  0x0000000023098000 JavaThread "Direct Clip" daemon [_thread_blocked, id=25716, stack(0x0000000030d60000,0x0000000030e60000)]
+  0x0000000023096800 JavaThread "Direct Clip" daemon [_thread_blocked, id=23228, stack(0x0000000030c60000,0x0000000030d60000)]
+  0x0000000023099000 JavaThread "Direct Clip" daemon [_thread_blocked, id=15824, stack(0x0000000030b60000,0x0000000030c60000)]
+  0x0000000023099800 JavaThread "Direct Clip" daemon [_thread_blocked, id=19756, stack(0x0000000030a60000,0x0000000030b60000)]
+  0x0000000023115000 JavaThread "Direct Clip" daemon [_thread_blocked, id=24396, stack(0x0000000030960000,0x0000000030a60000)]
+  0x0000000023114000 JavaThread "Direct Clip" daemon [_thread_blocked, id=16316, stack(0x0000000030860000,0x0000000030960000)]
+  0x000000002311a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=5740, stack(0x0000000030760000,0x0000000030860000)]
+  0x0000000023112800 JavaThread "Direct Clip" daemon [_thread_blocked, id=9956, stack(0x0000000030660000,0x0000000030760000)]
+  0x0000000023119800 JavaThread "Direct Clip" daemon [_thread_blocked, id=26588, stack(0x0000000030560000,0x0000000030660000)]
+  0x0000000023118800 JavaThread "Direct Clip" daemon [_thread_blocked, id=11364, stack(0x0000000030460000,0x0000000030560000)]
+  0x0000000023116800 JavaThread "Direct Clip" daemon [_thread_blocked, id=25608, stack(0x0000000030360000,0x0000000030460000)]
+  0x0000000023113800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15448, stack(0x0000000030260000,0x0000000030360000)]
+  0x0000000023117000 JavaThread "Direct Clip" daemon [_thread_blocked, id=7804, stack(0x0000000030160000,0x0000000030260000)]
+  0x0000000023118000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10196, stack(0x0000000030060000,0x0000000030160000)]
+  0x0000000023115800 JavaThread "Direct Clip" daemon [_thread_blocked, id=29048, stack(0x000000002ff60000,0x0000000030060000)]
+  0x000000002310b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28756, stack(0x000000002fe60000,0x000000002ff60000)]
+  0x0000000023112000 JavaThread "Direct Clip" daemon [_thread_blocked, id=18036, stack(0x000000002fd60000,0x000000002fe60000)]
+  0x0000000023111000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10204, stack(0x000000002fc60000,0x000000002fd60000)]
+  0x000000002310f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=24364, stack(0x000000002fb60000,0x000000002fc60000)]
+  0x000000002310d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20264, stack(0x000000002fa60000,0x000000002fb60000)]
+  0x0000000023110800 JavaThread "Direct Clip" daemon [_thread_blocked, id=5760, stack(0x000000002f960000,0x000000002fa60000)]
+  0x000000002310c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=7768, stack(0x000000002f860000,0x000000002f960000)]
+  0x000000002310f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=8912, stack(0x000000002f760000,0x000000002f860000)]
+  0x000000002310e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=5092, stack(0x000000002f660000,0x000000002f760000)]
+  0x000000002310c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=14944, stack(0x000000002f560000,0x000000002f660000)]
+  0x000000001b02a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=26556, stack(0x000000002f460000,0x000000002f560000)]
+  0x000000001b02a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29020, stack(0x000000002f360000,0x000000002f460000)]
+  0x000000001b029000 JavaThread "Direct Clip" daemon [_thread_blocked, id=21664, stack(0x000000002f260000,0x000000002f360000)]
+  0x000000001b027800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20228, stack(0x000000002f160000,0x000000002f260000)]
+  0x000000001b02b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=26168, stack(0x000000002f060000,0x000000002f160000)]
+  0x000000001b028800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12392, stack(0x000000002ef60000,0x000000002f060000)]
+  0x000000001b027000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26304, stack(0x000000002ee60000,0x000000002ef60000)]
+  0x000000001b026000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13720, stack(0x000000002ed60000,0x000000002ee60000)]
+  0x000000001b01e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=23960, stack(0x000000002ec60000,0x000000002ed60000)]
+  0x000000001b025800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30972, stack(0x000000002eb60000,0x000000002ec60000)]
+  0x000000001b01d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22460, stack(0x000000002ea60000,0x000000002eb60000)]
+  0x000000001b022800 JavaThread "Direct Clip" daemon [_thread_blocked, id=30560, stack(0x000000002e960000,0x000000002ea60000)]
+  0x000000001b024800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31652, stack(0x000000002e860000,0x000000002e960000)]
+  0x000000001b020800 JavaThread "Direct Clip" daemon [_thread_blocked, id=8360, stack(0x000000002e760000,0x000000002e860000)]
+  0x000000001b020000 JavaThread "Direct Clip" daemon [_thread_blocked, id=19572, stack(0x000000002e660000,0x000000002e760000)]
+  0x000000001b01d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10320, stack(0x000000002e560000,0x000000002e660000)]
+  0x000000001b024000 JavaThread "Direct Clip" daemon [_thread_blocked, id=30528, stack(0x000000002e460000,0x000000002e560000)]
+  0x000000001b01c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26680, stack(0x000000002e360000,0x000000002e460000)]
+  0x000000001b021800 JavaThread "Direct Clip" daemon [_thread_blocked, id=24680, stack(0x000000002e260000,0x000000002e360000)]
+  0x000000001b023000 JavaThread "Direct Clip" daemon [_thread_blocked, id=22028, stack(0x000000002e160000,0x000000002e260000)]
+  0x000000001b01f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13748, stack(0x000000002e060000,0x000000002e160000)]
+  0x0000000019c3e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=21676, stack(0x000000002df60000,0x000000002e060000)]
+  0x0000000019c36800 JavaThread "Direct Clip" daemon [_thread_blocked, id=6172, stack(0x000000002de60000,0x000000002df60000)]
+  0x0000000019c3d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28544, stack(0x000000002dd60000,0x000000002de60000)]
+  0x0000000019c39800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20200, stack(0x000000002dc60000,0x000000002dd60000)]
+  0x0000000019c3c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10328, stack(0x000000002db60000,0x000000002dc60000)]
+  0x0000000019c35800 JavaThread "Direct Clip" daemon [_thread_blocked, id=20284, stack(0x000000002da60000,0x000000002db60000)]
+  0x0000000019c3b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=18084, stack(0x000000002d960000,0x000000002da60000)]
+  0x0000000019c3b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=20856, stack(0x000000002d860000,0x000000002d960000)]
+  0x0000000019c3a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10280, stack(0x000000002d760000,0x000000002d860000)]
+  0x0000000019c37000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29064, stack(0x000000002d660000,0x000000002d760000)]
+  0x0000000019c38800 JavaThread "Direct Clip" daemon [_thread_blocked, id=26004, stack(0x000000002d560000,0x000000002d660000)]
+  0x0000000019c32800 JavaThread "Direct Clip" daemon [_thread_blocked, id=26244, stack(0x000000002d460000,0x000000002d560000)]
+  0x0000000019c38000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23624, stack(0x000000002d360000,0x000000002d460000)]
+  0x0000000019c2e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12496, stack(0x000000002d260000,0x000000002d360000)]
+  0x0000000019c31000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10776, stack(0x000000002d160000,0x000000002d260000)]
+  0x0000000019c31800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10112, stack(0x000000002d060000,0x000000002d160000)]
+  0x0000000019c30000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29844, stack(0x000000002cf60000,0x000000002d060000)]
+  0x0000000019c34800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22788, stack(0x000000002ce60000,0x000000002cf60000)]
+  0x0000000019c2f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=12356, stack(0x000000002cd60000,0x000000002ce60000)]
+  0x0000000019c34000 JavaThread "Direct Clip" daemon [_thread_blocked, id=9924, stack(0x000000002cc60000,0x000000002cd60000)]
+  0x0000000019c33000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26288, stack(0x000000002cb60000,0x000000002cc60000)]
+  0x000000001ac0f800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10272, stack(0x000000002ca60000,0x000000002cb60000)]
+  0x000000001ac0f000 JavaThread "Direct Clip" daemon [_thread_blocked, id=19852, stack(0x000000002c960000,0x000000002ca60000)]
+  0x000000001ac0e000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26328, stack(0x000000002c860000,0x000000002c960000)]
+  0x000000001ac0d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27608, stack(0x000000002c760000,0x000000002c860000)]
+  0x000000001ac0b000 JavaThread "Direct Clip" daemon [_thread_blocked, id=28984, stack(0x000000002c660000,0x000000002c760000)]
+  0x000000001ac0c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10432, stack(0x000000002c560000,0x000000002c660000)]
+  0x000000001ac10800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15348, stack(0x000000002c460000,0x000000002c560000)]
+  0x000000001ac0c800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15888, stack(0x000000002c360000,0x000000002c460000)]
+  0x000000001ac0a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=24228, stack(0x000000002c260000,0x000000002c360000)]
+  0x000000001ac03000 JavaThread "Direct Clip" daemon [_thread_blocked, id=13816, stack(0x000000002c160000,0x000000002c260000)]
+  0x000000001ac09800 JavaThread "Direct Clip" daemon [_thread_blocked, id=7948, stack(0x000000002c060000,0x000000002c160000)]
+  0x000000001ac09000 JavaThread "Direct Clip" daemon [_thread_blocked, id=7160, stack(0x000000002bf60000,0x000000002c060000)]
+  0x000000001ac05000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17568, stack(0x000000002be60000,0x000000002bf60000)]
+  0x000000001ac03800 JavaThread "Direct Clip" daemon [_thread_blocked, id=2488, stack(0x000000002bd60000,0x000000002be60000)]
+  0x000000001ac02000 JavaThread "Direct Clip" daemon [_thread_blocked, id=30384, stack(0x000000002bc60000,0x000000002bd60000)]
+  0x000000001ac04800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15548, stack(0x000000002bb60000,0x000000002bc60000)]
+  0x000000001ac06800 JavaThread "Direct Clip" daemon [_thread_blocked, id=16840, stack(0x000000002ba60000,0x000000002bb60000)]
+  0x000000001ac06000 JavaThread "Direct Clip" daemon [_thread_blocked, id=4300, stack(0x000000002b960000,0x000000002ba60000)]
+  0x000000001ac01800 JavaThread "Direct Clip" daemon [_thread_blocked, id=6128, stack(0x000000002b860000,0x000000002b960000)]
+  0x000000001ac08000 JavaThread "Direct Clip" daemon [_thread_blocked, id=4288, stack(0x000000002b760000,0x000000002b860000)]
+  0x000000001ac07800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10088, stack(0x000000002b660000,0x000000002b760000)]
+  0x0000000019dae000 JavaThread "Direct Clip" daemon [_thread_blocked, id=30148, stack(0x000000002b560000,0x000000002b660000)]
+  0x0000000019dad800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22940, stack(0x000000002b460000,0x000000002b560000)]
+  0x0000000019dac000 JavaThread "Direct Clip" daemon [_thread_blocked, id=17612, stack(0x000000002b360000,0x000000002b460000)]
+  0x0000000019da9800 JavaThread "Direct Clip" daemon [_thread_blocked, id=31084, stack(0x000000002b260000,0x000000002b360000)]
+  0x0000000019dac800 JavaThread "Direct Clip" daemon [_thread_blocked, id=22996, stack(0x000000002b160000,0x000000002b260000)]
+  0x0000000019da9000 JavaThread "Direct Clip" daemon [_thread_blocked, id=15064, stack(0x000000002b060000,0x000000002b160000)]
+  0x0000000019daf800 JavaThread "Direct Clip" daemon [_thread_blocked, id=6152, stack(0x000000002af60000,0x000000002b060000)]
+  0x0000000019daf000 JavaThread "Direct Clip" daemon [_thread_blocked, id=20540, stack(0x000000002ae60000,0x000000002af60000)]
+  0x0000000019dab000 JavaThread "Direct Clip" daemon [_thread_blocked, id=23300, stack(0x000000002ad60000,0x000000002ae60000)]
+  0x0000000019daa800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10804, stack(0x000000002ac60000,0x000000002ad60000)]
+  0x000000001ae7b800 JavaThread "Direct Clip" daemon [_thread_blocked, id=26700, stack(0x000000002ab60000,0x000000002ac60000)]
+  0x000000001ae7a000 JavaThread "Direct Clip" daemon [_thread_blocked, id=26464, stack(0x000000002aa60000,0x000000002ab60000)]
+  0x000000001ae79000 JavaThread "Direct Clip" daemon [_thread_blocked, id=29700, stack(0x000000002a960000,0x000000002aa60000)]
+  0x000000001ae77800 JavaThread "Direct Clip" daemon [_thread_blocked, id=27640, stack(0x000000002a860000,0x000000002a960000)]
+  0x000000001ae7d800 JavaThread "Direct Clip" daemon [_thread_blocked, id=17032, stack(0x00000000286d0000,0x00000000287d0000)]
+  0x000000001ae77000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10740, stack(0x00000000285d0000,0x00000000286d0000)]
+  0x000000001ae7c000 JavaThread "Direct Clip" daemon [_thread_blocked, id=11692, stack(0x00000000284d0000,0x00000000285d0000)]
+  0x000000001ae7a800 JavaThread "Direct Clip" daemon [_thread_blocked, id=11312, stack(0x00000000283d0000,0x00000000284d0000)]
+  0x000000001ae7d000 JavaThread "Direct Clip" daemon [_thread_blocked, id=10028, stack(0x00000000282d0000,0x00000000283d0000)]
+  0x000000001ae78800 JavaThread "Direct Clip" daemon [_thread_blocked, id=15248, stack(0x00000000281d0000,0x00000000282d0000)]
+  0x000000001adfd000 JavaThread "Direct Clip" daemon [_thread_blocked, id=27560, stack(0x00000000280d0000,0x00000000281d0000)]
+  0x000000001adfc000 JavaThread "Direct Clip" daemon [_thread_blocked, id=12868, stack(0x0000000027fd0000,0x00000000280d0000)]
+  0x000000001adf8000 JavaThread "Direct Clip" daemon [_thread_blocked, id=8228, stack(0x0000000027ed0000,0x0000000027fd0000)]
+  0x000000002396e800 JavaThread "Direct Clip" daemon [_thread_blocked, id=10248, stack(0x0000000027dd0000,0x0000000027ed0000)]
+  0x000000001b004800 JavaThread "Direct Clip" daemon [_thread_blocked, id=26868, stack(0x0000000025840000,0x0000000025940000)]
+  0x0000000024590800 JavaThread "Java Sound Event Dispatcher" daemon [_thread_blocked, id=27920, stack(0x0000000025440000,0x0000000025540000)]
+=>0x000000001b037000 JavaThread "main-SharedResourceRunner" daemon [_thread_in_native, id=11424, stack(0x00000000211b0000,0x00000000212b0000)]
+  0x000000001aec0800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=3888, stack(0x000000001b360000,0x000000001b460000)]
+  0x0000000019bc0800 JavaThread "Service Thread" daemon [_thread_blocked, id=1112, stack(0x000000001a4f0000,0x000000001a5f0000)]
+  0x0000000019b26000 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=25844, stack(0x000000001a3f0000,0x000000001a4f0000)]
+  0x0000000019b25000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=26772, stack(0x000000001a2f0000,0x000000001a3f0000)]
+  0x0000000019b1f000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=23156, stack(0x000000001a1f0000,0x000000001a2f0000)]
+  0x0000000019b19800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=2144, stack(0x000000001a0f0000,0x000000001a1f0000)]
+  0x0000000019b18800 JavaThread "Attach Listener" daemon [_thread_blocked, id=23924, stack(0x0000000019ff0000,0x000000001a0f0000)]
+  0x0000000019b18000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=28532, stack(0x0000000019ef0000,0x0000000019ff0000)]
+  0x0000000002b58000 JavaThread "Finalizer" daemon [_thread_blocked, id=8828, stack(0x00000000199f0000,0x0000000019af0000)]
+  0x0000000017b1c800 JavaThread "Reference Handler" daemon [_thread_blocked, id=15612, stack(0x00000000198f0000,0x00000000199f0000)]
+
+Other Threads:
+  0x0000000017b18800 VMThread [stack: 0x00000000197f0000,0x00000000198f0000] [id=8476]
+  0x0000000019bc1800 WatcherThread [stack: 0x000000001a5f0000,0x000000001a6f0000] [id=24748]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 141824K, used 55908K [0x00000000d5c00000, 0x00000000e0700000, 0x0000000100000000)
+  eden space 126976K, 32% used [0x00000000d5c00000,0x00000000d841f7f0,0x00000000dd800000)
+  from space 14848K, 99% used [0x00000000dec80000,0x00000000dfaf9960,0x00000000dfb00000)
+  to   space 20992K, 0% used [0x00000000dd800000,0x00000000dd800000,0x00000000dec80000)
+ ParOldGen       total 87552K, used 53073K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 60% used [0x0000000081400000,0x00000000847d44b0,0x0000000086980000)
+ Metaspace       used 14378K, capacity 14506K, committed 14848K, reserved 1062912K
+  class space    used 1371K, capacity 1410K, committed 1536K, reserved 1048576K
+
+Card table byte_map: [0x0000000011f20000,0x0000000012320000] byte_map_base: 0x0000000011b16000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000077dfd4f0
+ Begin Bits: [0x0000000012dd0000, 0x0000000014d80000)
+ End Bits:   [0x0000000014d80000, 0x0000000016d30000)
+
+Polling page: 0x00000000028b0000
+
+CodeCache: size=245760Kb used=6477Kb max_used=6477Kb free=239282Kb
+ bounds [0x0000000002b60000, 0x00000000031c0000, 0x0000000011b60000]
+ total_blobs=2329 nmethods=1540 adapters=703
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 68.247 Thread 0x0000000019b25000 1729       4       sun.misc.CompoundEnumeration::next (58 bytes)
+Event: 68.248 Thread 0x0000000019b26000 1730       3       java.security.AccessControlContext::calculateFields (89 bytes)
+Event: 68.248 Thread 0x0000000019b26000 nmethod 1730 0x00000000031b7990 code [0x00000000031b7b20, 0x00000000031b7ed8]
+Event: 68.248 Thread 0x0000000019b25000 nmethod 1729 0x00000000031b0e50 code [0x00000000031b0fa0, 0x00000000031b10b8]
+Event: 68.945 Thread 0x0000000019b26000 1732       3       jogamp.newt.WindowImpl::consumeKeyEvent (160 bytes)
+Event: 68.945 Thread 0x0000000019b26000 nmethod 1732 0x00000000031b8910 code [0x00000000031b8b00, 0x00000000031b93b8]
+Event: 68.945 Thread 0x0000000019b26000 1731       3       com.jogamp.newt.event.KeyEvent::<init> (151 bytes)
+Event: 68.947 Thread 0x0000000019b26000 nmethod 1731 0x00000000031b56d0 code [0x00000000031b5980, 0x00000000031b6cb8]
+Event: 68.947 Thread 0x0000000019b26000 1733       3       jogamp.newt.WindowImpl::propagateKeyEvent (88 bytes)
+Event: 68.948 Thread 0x0000000019b26000 nmethod 1733 0x00000000031b9850 code [0x00000000031b9a80, 0x00000000031baab8]
+
+GC Heap History (10 events):
+Event: 5.430 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 38400K, used 37969K [0x00000000d5c00000, 0x00000000d8680000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000d5c00000,0x00000000d7c80000,0x00000000d7c80000)
+  from space 5120K, 91% used [0x00000000d7c80000,0x00000000d81146c0,0x00000000d8180000)
+  to   space 5120K, 0% used [0x00000000d8180000,0x00000000d8180000,0x00000000d8680000)
+ ParOldGen       total 87552K, used 0K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 0% used [0x0000000081400000,0x0000000081400000,0x0000000086980000)
+ Metaspace       used 13472K, capacity 13664K, committed 13952K, reserved 1062912K
+  class space    used 1317K, capacity 1371K, committed 1408K, reserved 1048576K
+Event: 5.435 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 38400K, used 5115K [0x00000000d5c00000, 0x00000000d8680000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000d5c00000,0x00000000d5c00000,0x00000000d7c80000)
+  from space 5120K, 99% used [0x00000000d8180000,0x00000000d867ef88,0x00000000d8680000)
+  to   space 5120K, 0% used [0x00000000d7c80000,0x00000000d7c80000,0x00000000d8180000)
+ ParOldGen       total 87552K, used 68K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 0% used [0x0000000081400000,0x0000000081411150,0x0000000086980000)
+ Metaspace       used 13472K, capacity 13664K, committed 13952K, reserved 1062912K
+  class space    used 1317K, capacity 1371K, committed 1408K, reserved 1048576K
+}
+Event: 5.487 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 38400K, used 38395K [0x00000000d5c00000, 0x00000000d8680000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000d5c00000,0x00000000d7c80000,0x00000000d7c80000)
+  from space 5120K, 99% used [0x00000000d8180000,0x00000000d867ef88,0x00000000d8680000)
+  to   space 5120K, 0% used [0x00000000d7c80000,0x00000000d7c80000,0x00000000d8180000)
+ ParOldGen       total 87552K, used 68K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 0% used [0x0000000081400000,0x0000000081411150,0x0000000086980000)
+ Metaspace       used 13482K, capacity 13664K, committed 13952K, reserved 1062912K
+  class space    used 1317K, capacity 1371K, committed 1408K, reserved 1048576K
+Event: 5.491 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 38400K, used 4339K [0x00000000d5c00000, 0x00000000da700000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000d5c00000,0x00000000d5c00000,0x00000000d7c80000)
+  from space 5120K, 84% used [0x00000000d7c80000,0x00000000d80bcd48,0x00000000d8180000)
+  to   space 5120K, 0% used [0x00000000da200000,0x00000000da200000,0x00000000da700000)
+ ParOldGen       total 87552K, used 76K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 0% used [0x0000000081400000,0x0000000081413150,0x0000000086980000)
+ Metaspace       used 13482K, capacity 13664K, committed 13952K, reserved 1062912K
+  class space    used 1317K, capacity 1371K, committed 1408K, reserved 1048576K
+}
+Event: 17.710 GC heap before
+{Heap before GC invocations=4 (full 0):
+ PSYoungGen      total 38400K, used 37619K [0x00000000d5c00000, 0x00000000da700000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000d5c00000,0x00000000d7c80000,0x00000000d7c80000)
+  from space 5120K, 84% used [0x00000000d7c80000,0x00000000d80bcd48,0x00000000d8180000)
+  to   space 5120K, 0% used [0x00000000da200000,0x00000000da200000,0x00000000da700000)
+ ParOldGen       total 87552K, used 33349K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 38% used [0x0000000081400000,0x0000000083491560,0x0000000086980000)
+ Metaspace       used 14133K, capacity 14314K, committed 14592K, reserved 1062912K
+  class space    used 1367K, capacity 1410K, committed 1536K, reserved 1048576K
+Event: 17.716 GC heap after
+Heap after GC invocations=4 (full 0):
+ PSYoungGen      total 71680K, used 5107K [0x00000000d5c00000, 0x00000000da700000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000d5c00000,0x00000000d5c00000,0x00000000d9d00000)
+  from space 5120K, 99% used [0x00000000da200000,0x00000000da6fcd68,0x00000000da700000)
+  to   space 5120K, 0% used [0x00000000d9d00000,0x00000000d9d00000,0x00000000da200000)
+ ParOldGen       total 87552K, used 35888K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 40% used [0x0000000081400000,0x000000008370c3f0,0x0000000086980000)
+ Metaspace       used 14133K, capacity 14314K, committed 14592K, reserved 1062912K
+  class space    used 1367K, capacity 1410K, committed 1536K, reserved 1048576K
+}
+Event: 31.757 GC heap before
+{Heap before GC invocations=5 (full 0):
+ PSYoungGen      total 71680K, used 71667K [0x00000000d5c00000, 0x00000000da700000, 0x0000000100000000)
+  eden space 66560K, 100% used [0x00000000d5c00000,0x00000000d9d00000,0x00000000d9d00000)
+  from space 5120K, 99% used [0x00000000da200000,0x00000000da6fcd68,0x00000000da700000)
+  to   space 5120K, 0% used [0x00000000d9d00000,0x00000000d9d00000,0x00000000da200000)
+ ParOldGen       total 87552K, used 35888K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 40% used [0x0000000081400000,0x000000008370c3f0,0x0000000086980000)
+ Metaspace       used 14253K, capacity 14442K, committed 14848K, reserved 1062912K
+  class space    used 1367K, capacity 1410K, committed 1536K, reserved 1048576K
+Event: 31.765 GC heap after
+Heap after GC invocations=5 (full 0):
+ PSYoungGen      total 71680K, used 5089K [0x00000000d5c00000, 0x00000000dfb00000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000d5c00000,0x00000000d5c00000,0x00000000d9d00000)
+  from space 5120K, 99% used [0x00000000d9d00000,0x00000000da1f8700,0x00000000da200000)
+  to   space 14848K, 0% used [0x00000000dec80000,0x00000000dec80000,0x00000000dfb00000)
+ ParOldGen       total 87552K, used 47220K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 53% used [0x0000000081400000,0x000000008421d2d0,0x0000000086980000)
+ Metaspace       used 14253K, capacity 14442K, committed 14848K, reserved 1062912K
+  class space    used 1367K, capacity 1410K, committed 1536K, reserved 1048576K
+}
+Event: 56.939 GC heap before
+{Heap before GC invocations=6 (full 0):
+ PSYoungGen      total 71680K, used 71649K [0x00000000d5c00000, 0x00000000dfb00000, 0x0000000100000000)
+  eden space 66560K, 100% used [0x00000000d5c00000,0x00000000d9d00000,0x00000000d9d00000)
+  from space 5120K, 99% used [0x00000000d9d00000,0x00000000da1f8700,0x00000000da200000)
+  to   space 14848K, 0% used [0x00000000dec80000,0x00000000dec80000,0x00000000dfb00000)
+ ParOldGen       total 87552K, used 47220K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 53% used [0x0000000081400000,0x000000008421d2d0,0x0000000086980000)
+ Metaspace       used 14338K, capacity 14506K, committed 14848K, reserved 1062912K
+  class space    used 1367K, capacity 1410K, committed 1536K, reserved 1048576K
+Event: 56.947 GC heap after
+Heap after GC invocations=6 (full 0):
+ PSYoungGen      total 141824K, used 14822K [0x00000000d5c00000, 0x00000000e0700000, 0x0000000100000000)
+  eden space 126976K, 0% used [0x00000000d5c00000,0x00000000d5c00000,0x00000000dd800000)
+  from space 14848K, 99% used [0x00000000dec80000,0x00000000dfaf9960,0x00000000dfb00000)
+  to   space 20992K, 0% used [0x00000000dd800000,0x00000000dd800000,0x00000000dec80000)
+ ParOldGen       total 87552K, used 53073K [0x0000000081400000, 0x0000000086980000, 0x00000000d5c00000)
+  object space 87552K, 60% used [0x0000000081400000,0x00000000847d44b0,0x0000000086980000)
+ Metaspace       used 14338K, capacity 14506K, committed 14848K, reserved 1062912K
+  class space    used 1367K, capacity 1410K, committed 1536K, reserved 1048576K
+}
+
+Deoptimization events (10 events):
+Event: 5.439 Thread 0x000000000292e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000002f2fbbc method=java.util.regex.Pattern$Curly.match0(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z @ 77
+Event: 5.454 Thread 0x000000000292e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000002f26198 method=java.util.regex.Matcher.match(II)Z @ 86
+Event: 5.454 Thread 0x000000000292e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000002f2fbbc method=java.util.regex.Pattern$Curly.match0(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z @ 77
+Event: 5.468 Thread 0x000000000292e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000002f26198 method=java.util.regex.Matcher.match(II)Z @ 86
+Event: 5.468 Thread 0x000000000292e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000002f2fbbc method=java.util.regex.Pattern$Curly.match0(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z @ 77
+Event: 5.484 Thread 0x000000000292e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000002f26198 method=java.util.regex.Matcher.match(II)Z @ 86
+Event: 5.484 Thread 0x000000000292e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000002f2fbbc method=java.util.regex.Pattern$Curly.match0(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z @ 77
+Event: 18.868 Thread 0x000000000292e000 Uncommon trap: reason=unreached action=reinterpret pc=0x0000000003108014 method=GameObject.resolveWallCollisions(IIIII[[[LGameObject;)V @ 855
+Event: 71.802 Thread 0x000000001b037000 Uncommon trap: reason=unreached action=reinterpret pc=0x00000000031a3104 method=jogamp.common.util.locks.RecursiveLockImpl01Unfairish$SingleThreadSync.isOwner(Ljava/lang/Thread;)Z @ 5
+Event: 71.802 Thread 0x000000001b037000 Uncommon trap: reason=unreached action=reinterpret pc=0x0000000002f1875c method=jogamp.common.util.locks.RecursiveLockImpl01Unfairish$SingleThreadSync.isOwner(Ljava/lang/Thread;)Z @ 5
+
+Internal exceptions (10 events):
+Event: 4.419 Thread 0x000000001b004000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d6fb95f0) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 5.362 Thread 0x000000000292e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d72a7b60) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 5.372 Thread 0x000000000292e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d72daba0) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 5.372 Thread 0x000000000292e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d72dc230) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 5.523 Thread 0x000000000292e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d665c6f8) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 5.524 Thread 0x000000000292e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d66627c0) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 5.652 Thread 0x000000000292e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d67f3098) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 15.210 Thread 0x000000001b004000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d6ca5c60) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 49.953 Thread 0x000000000292e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d8e79c40) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 71.781 Thread 0x000000001ad0f000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d8419fc0) thrown at [C:\workspace\8-2-build-windows-amd64-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+
+Events (10 events):
+Event: 71.781 loading class sun/java2d/pipe/hw/AccelDeviceEventNotifier
+Event: 71.781 loading class sun/java2d/pipe/hw/AccelDeviceEventNotifier done
+Event: 71.781 Thread 0x000000001b004000 Thread exited: 0x000000001b004000
+Event: 71.789 Thread 0x000000001af3a000 Thread exited: 0x000000001af3a000
+Event: 71.802 Thread 0x000000001b037000 Uncommon trap: trap_request=0xffffffad fr.pc=0x00000000031a3104
+Event: 71.802 Thread 0x000000001b037000 DEOPT PACKING pc=0x00000000031a3104 sp=0x00000000212af430
+Event: 71.802 Thread 0x000000001b037000 DEOPT UNPACKING pc=0x0000000002ba556a sp=0x00000000212af360 mode 2
+Event: 71.802 Thread 0x000000001b037000 Uncommon trap: trap_request=0xffffffad fr.pc=0x0000000002f1875c
+Event: 71.802 Thread 0x000000001b037000 DEOPT PACKING pc=0x0000000002f1875c sp=0x00000000212af4b0
+Event: 71.802 Thread 0x000000001b037000 DEOPT UNPACKING pc=0x0000000002ba556a sp=0x00000000212af450 mode 2
+
+
+Dynamic libraries:
+0x00007ff631dc0000 - 0x00007ff631df4000 	C:\Program Files\Java\jre1.8.0_31\bin\javaw.exe
+0x00007ffae6140000 - 0x00007ffae6311000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffae5eb0000 - 0x00007ffae5f5b000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffae34b0000 - 0x00007ffae36cd000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffae5220000 - 0x00007ffae52c2000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffae5da0000 - 0x00007ffae5e3e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffae3810000 - 0x00007ffae3869000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffae36e0000 - 0x00007ffae3801000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffae5fd0000 - 0x00007ffae6135000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffae2630000 - 0x00007ffae264e000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffae53c0000 - 0x00007ffae53f4000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffae2870000 - 0x00007ffae29f2000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffad2610000 - 0x00007ffad2889000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.14393.447_none_42191651c6827bb3\COMCTL32.dll
+0x00007ffae5400000 - 0x00007ffae56c7000 	C:\WINDOWS\System32\combase.dll
+0x00007ffae2c30000 - 0x00007ffae2d25000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffae2a00000 - 0x00007ffae2a6a000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffae5d70000 - 0x00007ffae5d9e000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000050080000 - 0x0000000050152000 	C:\Program Files\Java\jre1.8.0_31\bin\msvcr100.dll
+0x0000000077620000 - 0x0000000077e7a000 	C:\Program Files\Java\jre1.8.0_31\bin\server\jvm.dll
+0x00007ffae57d0000 - 0x00007ffae57d8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffada050000 - 0x00007ffada059000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffad4660000 - 0x00007ffad4683000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffae5330000 - 0x00007ffae539a000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffad4220000 - 0x00007ffad424b000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffae2820000 - 0x00007ffae2862000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x0000000050020000 - 0x000000005002f000 	C:\Program Files\Java\jre1.8.0_31\bin\verify.dll
+0x00000000775f0000 - 0x0000000077618000 	C:\Program Files\Java\jre1.8.0_31\bin\java.dll
+0x0000000050000000 - 0x0000000050016000 	C:\Program Files\Java\jre1.8.0_31\bin\zip.dll
+0x00007ffae38d0000 - 0x00007ffae4dd9000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffae2d30000 - 0x00007ffae340a000 	C:\WINDOWS\System32\windows.storage.dll
+0x00007ffae25b0000 - 0x00007ffae25fc000 	C:\WINDOWS\System32\powrprof.dll
+0x00007ffae3870000 - 0x00007ffae38c2000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffae2620000 - 0x00007ffae262f000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ffae2a70000 - 0x00007ffae2b19000 	C:\WINDOWS\System32\shcore.dll
+0x00007ffae2600000 - 0x00007ffae2614000 	C:\WINDOWS\System32\profapi.dll
+0x0000000050230000 - 0x00000000503c8000 	C:\Program Files\Java\jre1.8.0_31\bin\awt.dll
+0x00007ffae4f80000 - 0x00007ffae503f000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffae3410000 - 0x00007ffae34ac000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffae0af0000 - 0x00007ffae0b6a000 	C:\WINDOWS\SYSTEM32\apphelp.dll
+0x00007ffae2010000 - 0x00007ffae2027000 	C:\WINDOWS\SYSTEM32\CRYPTSP.dll
+0x00007ffae1f20000 - 0x00007ffae1f53000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ffae24e0000 - 0x00007ffae250b000 	C:\WINDOWS\SYSTEM32\bcrypt.dll
+0x00007ffae1c20000 - 0x00007ffae1c3f000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ffae2030000 - 0x00007ffae203b000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x00000000775d0000 - 0x00000000775ea000 	C:\Program Files\Java\jre1.8.0_31\bin\net.dll
+0x00007ffae1da0000 - 0x00007ffae1dfc000 	C:\WINDOWS\system32\mswsock.dll
+0x00007ffae1b30000 - 0x00007ffae1b68000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ffae36d0000 - 0x00007ffae36d8000 	C:\WINDOWS\System32\NSI.dll
+0x00007ffad9450000 - 0x00007ffad9466000 	C:\WINDOWS\SYSTEM32\dhcpcsvc6.DLL
+0x00007ffad93d0000 - 0x00007ffad93ea000 	C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL
+0x00000000503d0000 - 0x00000000503e1000 	C:\Program Files\Java\jre1.8.0_31\bin\nio.dll
+0x00000000637c0000 - 0x00000000637cd000 	C:\Users\Kudo\AppData\Local\Temp\jogamp_0000\file_cache\jln3934423022651730712\jln6136853045856046008\natives\windows-amd64\gluegen-rt.dll
+0x00007ffae1100000 - 0x00007ffae1195000 	C:\WINDOWS\system32\uxtheme.dll
+0x00007ffae5c10000 - 0x00007ffae5d6b000 	C:\WINDOWS\System32\MSCTF.dll
+0x00007ffadff30000 - 0x00007ffadff56000 	C:\WINDOWS\system32\dwmapi.dll
+0x00007ffae5040000 - 0x00007ffae5177000 	C:\WINDOWS\System32\ole32.dll
+0x0000000050070000 - 0x0000000050077000 	C:\Program Files\Java\jre1.8.0_31\bin\jawt.dll
+0x000000006a440000 - 0x000000006a44d000 	C:\Users\Kudo\AppData\Local\Temp\jogamp_0000\file_cache\jln3934423022651730712\jln6136853045856046008\natives\windows-amd64\nativewindow_awt.dll
+0x00007ffacb290000 - 0x00007ffacb41d000 	C:\WINDOWS\system32\d3d9.dll
+0x00007ffae57e0000 - 0x00007ffae5c09000 	C:\WINDOWS\System32\SETUPAPI.dll
+0x00007ffadc070000 - 0x00007ffadcab0000 	C:\WINDOWS\SYSTEM32\igdusc64.dll
+0x000000006c100000 - 0x000000006c10f000 	C:\Users\Kudo\AppData\Local\Temp\jogamp_0000\file_cache\jln3934423022651730712\jln6136853045856046008\natives\windows-amd64\nativewindow_win32.dll
+0x00007ffad37f0000 - 0x00007ffad3913000 	C:\WINDOWS\SYSTEM32\OpenGL32.dll
+0x00007ffadfeb0000 - 0x00007ffadfedd000 	C:\WINDOWS\SYSTEM32\GLU32.dll
+0x00007ffac9120000 - 0x00007ffac9217000 	C:\WINDOWS\SYSTEM32\DDRAW.dll
+0x00007ffade260000 - 0x00007ffade268000 	C:\WINDOWS\SYSTEM32\DCIMAN32.dll
+0x0000000064500000 - 0x00000000645b1000 	C:\Users\Kudo\AppData\Local\Temp\jogamp_0000\file_cache\jln3934423022651730712\jln6136853045856046008\natives\windows-amd64\jogl_desktop.dll
+0x00007ffab7da0000 - 0x00007ffab7ef9000 	C:\Program Files\MiKTeX 2.9\miktex\bin\x64\libGLESv2.dll
+0x00007ffad4bf0000 - 0x00007ffad4c96000 	C:\WINDOWS\SYSTEM32\MSVCP120.dll
+0x00007ffad4ca0000 - 0x00007ffad4d8f000 	C:\WINDOWS\SYSTEM32\MSVCR120.dll
+0x0000000064340000 - 0x00000000643a2000 	C:\Users\Kudo\AppData\Local\Temp\jogamp_0000\file_cache\jln3934423022651730712\jln6136853045856046008\natives\windows-amd64\jogl_mobile.dll
+0x00007ffaae780000 - 0x00007ffaaf2c6000 	C:\WINDOWS\SYSTEM32\ig75icd64.dll
+0x00007ffad9730000 - 0x00007ffad9743000 	C:\WINDOWS\SYSTEM32\WTSAPI32.dll
+0x000000006cbc0000 - 0x000000006cbd3000 	C:\Users\Kudo\AppData\Local\Temp\jogamp_0000\file_cache\jln3934423022651730712\jln6136853045856046008\natives\windows-amd64\newt.dll
+0x00007ffad1690000 - 0x00007ffad1721000 	C:\WINDOWS\SYSTEM32\mscms.dll
+0x00007ffabb140000 - 0x00007ffabb182000 	C:\WINDOWS\SYSTEM32\icm32.dll
+0x00007ffae11c0000 - 0x00007ffae11e8000 	C:\WINDOWS\SYSTEM32\DEVOBJ.dll
+0x00007ffae2b20000 - 0x00007ffae2b75000 	C:\WINDOWS\System32\WINTRUST.dll
+0x00007ffae25a0000 - 0x00007ffae25b0000 	C:\WINDOWS\System32\MSASN1.dll
+0x00007ffae2650000 - 0x00007ffae2819000 	C:\WINDOWS\System32\CRYPT32.dll
+0x0000000050060000 - 0x000000005006c000 	C:\Program Files\Java\jre1.8.0_31\bin\jsound.dll
+0x0000000050050000 - 0x000000005005b000 	C:\Program Files\Java\jre1.8.0_31\bin\jsoundds.dll
+0x00007ffab7770000 - 0x00007ffab780b000 	C:\WINDOWS\SYSTEM32\DSOUND.dll
+0x00007ffad8870000 - 0x00007ffad88e1000 	C:\WINDOWS\SYSTEM32\MMDevAPI.DLL
+0x00007ffad9a90000 - 0x00007ffad9c15000 	C:\WINDOWS\SYSTEM32\PROPSYS.dll
+0x00007ffae0080000 - 0x00007ffae00bf000 	C:\WINDOWS\SYSTEM32\wdmaud.drv
+0x00007ffade5b0000 - 0x00007ffade5b9000 	C:\WINDOWS\SYSTEM32\ksuser.dll
+0x00007ffadef60000 - 0x00007ffadef6b000 	C:\WINDOWS\SYSTEM32\AVRT.dll
+0x00007ffacafa0000 - 0x00007ffacb034000 	C:\WINDOWS\SYSTEM32\AUDIOSES.DLL
+0x00007ffadf460000 - 0x00007ffadf596000 	C:\WINDOWS\SYSTEM32\wintypes.dll
+0x00007ffae10d0000 - 0x00007ffae10dd000 	C:\WINDOWS\SYSTEM32\msacm32.drv
+0x00007ffae0060000 - 0x00007ffae007c000 	C:\WINDOWS\SYSTEM32\MSACM32.dll
+0x00007ffae0050000 - 0x00007ffae005a000 	C:\WINDOWS\SYSTEM32\midimap.dll
+0x00007ffae5180000 - 0x00007ffae521f000 	C:\WINDOWS\System32\clbcatq.dll
+0x00007ffac8dd0000 - 0x00007ffac8e21000 	C:\Program Files (x86)\obs-studio\data\obs-plugins\win-capture\graphics-hook64.dll
+0x00007ffadfa40000 - 0x00007ffadfcf6000 	C:\WINDOWS\system32\d3d11.dll
+0x00007ffae1530000 - 0x00007ffae15cf000 	C:\WINDOWS\SYSTEM32\dxgi.dll
+0x00007ffadcab0000 - 0x00007ffadd97b000 	C:\WINDOWS\SYSTEM32\igd10iumd64.dll
+0x00007ffae20f0000 - 0x00007ffae2116000 	C:\WINDOWS\SYSTEM32\ncrypt.dll
+0x00007ffae20b0000 - 0x00007ffae20eb000 	C:\WINDOWS\SYSTEM32\NTASN1.dll
+0x00007ffa9d920000 - 0x00007ffa9dd71000 	C:\WINDOWS\SYSTEM32\D3DCompiler_47.dll
+0x00007ffade760000 - 0x00007ffade8f2000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1252 
+java_command: JavaTemplate
+java_class_path (initial): C:\Users\Kudo\Documents\SourceTreeRepos\cs134\TOPSECRET\JoglTemplate5232017\JoglTemplate\bin;C:\Users\Kudo\Documents\SourceTreeRepos\cs134\TOPSECRET\JoglTemplate5232017\JoglTemplate\lib\jogamp-fat.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_11\
+USERNAME=Kudo
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 8298776k(2794920k free), swap 14261996k(5839836k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.31-b07) for windows-amd64 JRE (1.8.0_31-b13), built on Dec 17 2014 21:00:28 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Wed May 24 05:08:57 2017
+elapsed time: 71 seconds (0d 0h 1m 11s)
+
